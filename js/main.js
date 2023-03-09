@@ -1,4 +1,4 @@
-const imagesList = [
+let imagesList = [
     {
         image: 'img/01.webp',
         title: 'Marvel\'s Spiderman Miles Morale',
@@ -55,8 +55,11 @@ imagesList.forEach((element) =>{
 
 });
 
+
 imageListDom.innerHTML = frameContainer;
 thumbnailListDom.innerHTML = thumbnailContainer;
+
+const thumbnailImgDom = document.getElementsByClassName('tn-image');
 
 const imageWrapperDom = document.getElementsByClassName('image-wrapper');
 const thumbnailWrapperDom = document.getElementsByClassName('tn-wrap');
@@ -139,3 +142,17 @@ downDom.addEventListener('click',
     }
 );
 
+for (let i = 0; i<thumbnailImgDom.length; i++){
+    thumbnailImgDom[i].addEventListener('click',    
+        function (){
+
+            thumbnailWrapperDom[selectedImage].classList.remove('opacity');
+            imageWrapperDom[selectedImage].classList.remove('d-inBlock');
+
+            imageWrapperDom[i].classList.add('d-inBlock');
+            thumbnailWrapperDom[i].classList.add('opacity');
+
+            selectedImage = i;
+        }
+    );
+} 
