@@ -155,4 +155,32 @@ for (let i = 0; i<thumbnailImgDom.length; i++){
             selectedImage = i;
         }
     );
-} 
+}
+
+
+setInterval(function(){
+    if (selectedImage < imageWrapperDom.length - 1) {
+
+        thumbnailWrapperDom[selectedImage].classList.remove('opacity');
+
+        imageWrapperDom[selectedImage].classList.remove('d-inBlock');
+
+        selectedImage++;
+
+        imageWrapperDom[selectedImage].classList.add('d-inBlock');
+
+        thumbnailWrapperDom[selectedImage].classList.add('opacity');
+
+    }else if(selectedImage == (imageWrapperDom.length - 1)){
+
+        thumbnailWrapperDom[selectedImage].classList.remove('opacity');
+
+        imageWrapperDom[selectedImage].classList.remove('d-inBlock');
+        
+        selectedImage = 0;
+
+        thumbnailWrapperDom[selectedImage].classList.add('opacity');
+
+        imageWrapperDom[selectedImage].classList.add('d-inBlock');
+    }
+},3000)
